@@ -1,0 +1,84 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Exploring Chart.js</title>
+</head>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+    .widget {
+        background-color: DarkBlue;
+        color: white;
+        margin: 20px;
+        padding: 30px;
+        text-align: center;
+        font-family: Verdana;
+        font-size: 3rem;
+        max-width: 500;
+    }
+    .subtitle {
+        background-color: DarkBlue;
+        color: white;
+        padding-bottom: 20px;
+        text-align: center;
+        font-family: Verdana;
+        font-size: 1rem;
+        max-font-size: 32;
+    }
+    .topIcon {
+        float: right;
+        padding-bottom: 20px;
+    }
+</style>
+
+<body style="background-color:white;">
+    <div id="background">
+    
+        <div class="widget">
+            <div class="topIcon">
+            <i class="fa fa-cloud"></i>
+            </div>
+
+            <div id="avg">
+            <h> 0K </h>
+            
+            </div>
+            
+            <div class="subtitle">
+            <h>Average temperature </h>
+            </div>
+
+            <div>
+            <canvas id="myChart"></canvas>
+            </div>
+        </div>
+
+        <div class="widget">
+            <div class="topIcon">
+            <i class="fa fa-tint"></i>
+            </div>
+
+            <div id="avg2">
+            <h> 0K </h>
+            
+            </div>
+            
+            <div class="subtitle">
+            <h>Average humidity </h>
+            </div>
+
+            <div>
+            <canvas id="myChart2"></canvas>
+            </div>
+        </div>
+
+    </div>
+</body>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.js"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script type="text/javascript" src="{{ url_for('static', filename='myChart.js') }}"></script>
+
+</html>
