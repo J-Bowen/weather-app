@@ -6,6 +6,6 @@ steps:
   args: ['clone', 'https://github.com/J-Bowen/weather-app.git']
 
 - name: 'gcr.io/cloud-builders/gcloud'
-  args: ['app', 'deploy', '--log-http', '--verbosity=debug']
+  args: ['app', 'deploy', '--verbosity=debug']
 
 timeout: 1200s
