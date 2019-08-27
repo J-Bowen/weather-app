@@ -5,6 +5,10 @@ app = Flask(__name__)
 def homepage():
     return render_template('main.html.j2')
 
+@app.route('/test')
+def test():
+    return render_template('main.html.j2')
+
 if __name__ == '__main__':
     app.run(debug=True)
     a_website = "http://127.0.0.1:5000/"
