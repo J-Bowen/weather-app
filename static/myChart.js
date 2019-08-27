@@ -9,10 +9,13 @@ document.addEventListener('DOMContentLoaded', function() {
 var data=[];
 var labels=[];
 var humidity=[];
+var other=[];
 
 function renderChart() {
     var ctx = document.getElementById("myChart").getContext('2d');
     var ctx2 = document.getElementById("myChart2").getContext('2d');
+    var ctx3 = document.getElementById("myChart3").getContext('2d');
+
     var myChart = new Chart(ctx, {
         type: 'line',
         data: {
@@ -113,6 +116,56 @@ function renderChart() {
             }
         }         
     });
+    var myChart3 = new Chart(ctx3, {
+        type: 'line',
+        data: {
+            labels: labels,
+            datasets: [{
+                fill: 	true,
+                fillColor: '#F0FFFF',
+                borderColor: "#6495ED",
+                backgroundColor: "#e755ba",
+                pointDisplay: false,
+                pointHoverBackgroundColor: "#55bae7",
+                pointHoverBorderColor: "#55bae7",
+                data: other,
+                  
+            }],
+        },
+        options: {
+            elements: { point: { radius: 5 } },
+
+            legend: {
+                display: false,
+            },
+
+            scaleFontColor: 'red',
+            responsive: true,
+            tooltips: {
+                mode: 'single',
+            },
+            scales: {
+                display: false,
+                xAxes: [{ 
+                    gridLines: {
+                        display: false,
+                        color: "#FFFFFF"
+                    },
+                    ticks: {
+                        display: false,
+                        fontColor: "#FFFFFF", // this here
+                    },
+                }],
+                yAxes: [{
+                    display: false,
+                    gridLines: {
+                        display: false,
+                        color: "#FFFFFF",
+                    },
+                }],
+            }
+        }         
+    });
 }
 
 function getData(id){
@@ -123,6 +176,7 @@ function getData(id){
         // Begin accessing JSON data here
         data.push(JSON.parse(this.response).main.temp);
         humidity.push(JSON.parse(this.response).main.humidity);
+        other.push(JSON.parse(this.response).main.pressure);
         labels.push(id);
         plotGraph();
         
@@ -131,14 +185,10 @@ function getData(id){
 }
 
 function updateAverageTemp(){
-    var avgg;
-
-    for(var i=0; i<data.length; i++){
-        avgg += data[i];
-    }
-    avgg/=4;
     document.getElementById('avg').innerHTML = Math.round((data[0]+data[1]+data[2]+data[3])/4)+'K';
     document.getElementById('avg2').innerHTML = Math.round((humidity[0]+humidity[1]+humidity[2]+humidity[3])/4)+'%';
+    document.getElementById('avg3').innerHTML = Math.round((other[0]+other[1]+other[2]+other[3])/4)+'%';
+    
 }
 function plotGraph(){
     renderChart(data, labels);
