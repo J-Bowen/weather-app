@@ -10,9 +10,18 @@ steps:
   args: ['app', 'deploy', '--verbosity=debug']
 
 - name: 'docker.io/library/python:3.7'
-  args: ['pip', 'install', 'requests']
+  args:
+  - '-m'
+  - 'pip'
+  - 'install'
+  - '-t'
+  - '.'
+  - '-r'
+  - 'requirements.txt'
+
+
   args: ['python', 'test.py']
-  
+
 
 
 timeout: 1200s
