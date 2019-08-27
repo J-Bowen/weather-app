@@ -1,3 +1,3 @@
-# print("sucessful test")
+print("sucessful test")
 
-raise SystemExit('Python test failed')
+# raise SystemExit('Python test failed')
