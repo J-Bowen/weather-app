@@ -2,6 +2,10 @@
 # $ gcloud builds submit . --config=cloudbuild.yaml
 
 steps:
+
+- name: 'docker.io/library/python:2.7'
+  args: ['python', 'test.py']
+
 - name: 'gcr.io/cloud-builders/git'
   args: ['clone', 'https://github.com/J-Bowen/weather-app.git']
 
