@@ -2,11 +2,10 @@
 # $ gcloud builds submit . --config=cloudbuild.yaml
 
 steps:
+- name: 'gcr.io/cloud-builders/git'
+  args: ['clone', 'https://github.com/GoogleCloudPlatform/cloud-builders']
+
 - name: gcr.io/cloud-builders/gcloud
-  args: ['source', 'repos', 'clone', 'default']
-  
-images:
-# - 'gcr.io/$PROJECT_ID/gcloud'
-- 'gcr.io/$PROJECT_ID/gcloud-slim'
+  args: ['app', 'deploy']
 
 timeout: 1200s
