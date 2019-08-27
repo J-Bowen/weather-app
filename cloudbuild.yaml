@@ -14,10 +14,7 @@ steps:
   - '-m'
   - 'pip'
   - 'install'
-  - '-t'
-  - '.'
-  - '-r'
-  - 'requirements.txt'
+  - 'requests'
 
 - name: 'docker.io/library/python:3.7'
   args: ['python', 'test.py']
