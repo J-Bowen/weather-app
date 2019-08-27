@@ -9,9 +9,6 @@ steps:
 - name: 'gcr.io/cloud-builders/gcloud'
   args: ['app', 'deploy', '--verbosity=debug']
 
-- name: 'docker.io/library/python:3.7'
-  args: ['python', 'test.py']
-
 
 
 timeout: 1200s
