@@ -11,9 +11,8 @@ steps:
 
 - name: 'docker.io/library/python:3.7'
   args: ['pip', 'install', 'requests']
-
-- name: 'docker.io/library/python:3.7'
   args: ['python', 'test.py']
+  
 
 
 timeout: 1200s
