@@ -1,9 +1,12 @@
-from flask import Flask, requests, render_template
+from flask import Flask, requests, render_template, datetime, unittest
+
+from test import runTest 
 
 app = Flask(__name__)
 
 @app.route('/')
 def homepage():
+    runTest()
     return render_template('main.html.j2')
 
 @app.route('/test')
