@@ -1,19 +1,18 @@
-class testClass:
+import datetime, requests, unittest
 
-    def __init__(self):
+def runTest():
+    URL =  'https://api.openweathermap.org/data/2.5/weather?q=London,uk&APPID=86ccbefb8db547e08c6be822900d77a1'
+    t1 = datetime.datetime.now()
+    r = requests.get(url = URL)
+    t2 = datetime.datetime.now()
 
-    def runTest():
+    delay = ((t2-t1).microseconds/(1000000))
+    print(str((t2-t1).microseconds/(1000000)) +' seconds to get data')
+    print(r.json())
 
-        URL =  'https://api.openweathermap.org/data/2.5/weather?q=London,uk&APPID=86ccbefb8db547e08c6be822900d77a1'
-        t1 = datetime.datetime.now()
-        r = requests.get(url = URL)
-        t2 = datetime.datetime.now()
+ 
+    assert delay == 0, 'build failed, api took too long to respond'
 
-        delay = ((t2-t1).microseconds/(1000000))
-        print(str((t2-t1).microseconds/(1000000)) +' seconds to get data')
-        print(r.json())
-
-
-        assert delay == 0, 'build failed, api took too long to respond'
+runTest()
 # if(delay > 0):
 #     raise SystemExit()

@@ -1,12 +1,12 @@
-from flask import Flask, requests, render_template, datetime, unittest
+from flask import Flask, render_template
+import requests, datetime, unittest
 
-from test import runTest 
+# from test import testClass 
 
 app = Flask(__name__)
 
 @app.route('/')
 def homepage():
-    runTest()
     return render_template('main.html.j2')
 
 @app.route('/test')
@@ -17,6 +17,7 @@ if __name__ == '__main__':
     app.run(debug=True)
     a_website = "http://127.0.0.1:5000/"
     #webbrowser.get('chrome').open_new(a_website)
+
 
 # from selenium import webdriver
 # from selenium.webdriver.common.keys import Keys
