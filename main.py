@@ -1,7 +1,4 @@
 from flask import Flask, render_template
-import requests, datetime, unittest
-
-# from test import testClass 
 
 app = Flask(__name__)
 
@@ -17,7 +14,6 @@ if __name__ == '__main__':
     app.run(debug=True)
     a_website = "http://127.0.0.1:5000/"
     #webbrowser.get('chrome').open_new(a_website)
-
 
 # from selenium import webdriver
 # from selenium.webdriver.common.keys import Keys
