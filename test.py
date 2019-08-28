@@ -1,4 +1,6 @@
-import request, datetime,unittest
+import requests
+import datetime
+import unittest
 
 URL =  'https://api.openweathermap.org/data/2.5/weather?q=London,uk&APPID=86ccbefb8db547e08c6be822900d77a1'
 t1 = datetime.datetime.now()
