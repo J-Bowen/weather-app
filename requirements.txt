@@ -8,6 +8,5 @@ google-cloud-storage>=1.13.0
 google-cloud-logging>=1.8.0
 google-api-python-client==1.7.10
 google-cloud-ndb==0.0.1
-google-cloud-storage==1.17.0
 grpcio-gcp==1.17.1
 pandas>=0.23.4
