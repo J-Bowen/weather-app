@@ -1,14 +1,14 @@
 from flask import Flask, render_template
 import datetime,unittest,requests
+from google.appengine.api import memcache
 
+use_memcache = True
 
-use_memcache = False
-
-try: 
-    from google.appengine.api import memcache
-except ModuleNotFoundError:
-    use_memcache = True
-    print('memcache module not found')
+# try: 
+#     from google.appengine.api import memcache
+# except ModuleNotFoundError:
+#     use_memcache = True
+#     print('memcache module not found')
 
 
 
@@ -16,6 +16,7 @@ app = Flask(__name__)
 
 
 def setDataInMemcache():
+    print(type(memcache))
     if use_memcache:
         memcache.add(key="key1", value="test123", time=3600)
 
