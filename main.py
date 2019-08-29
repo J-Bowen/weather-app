@@ -5,11 +5,12 @@ app = Flask(__name__)
 
 @app.route('/')
 def homepage():
-    return render_template('main.html.j2')
+    data = {'UK': 'UK',
+            'FR': 'FR',
+            'DE': 'DE',
+            'DK': 'DK'}
 
-@app.route('/test')
-def test():
-    return render_template('main.html.j2')
+    return render_template('main.html.j2', data=data)
 
 if __name__ == '__main__':
     app.run(debug=True)

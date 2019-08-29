@@ -169,6 +169,12 @@ function renderChart() {
 }
 
 function getData(id){
+
+    console.log(data.UK)
+    console.log(data.DE)
+    console.log(data.FR)
+    console.log(data.DK)
+
     var request = new XMLHttpRequest();
     //check city ID, guessing Lon ...
     request.open('GET', 'https://api.openweathermap.org/data/2.5/weather?q='+id+'&APPID=86ccbefb8db547e08c6be822900d77a1', true);
@@ -187,7 +193,7 @@ function getData(id){
 function updateAverageTemp(){
     document.getElementById('avg').innerHTML = Math.round((data[0]+data[1]+data[2]+data[3])/4)+'K';
     document.getElementById('avg2').innerHTML = Math.round((humidity[0]+humidity[1]+humidity[2]+humidity[3])/4)+'%';
-    document.getElementById('avg3').innerHTML = Math.round((other[0]+other[1]+other[2]+other[3])/4)+'%';
+    document.getElementById('avg3').innerHTML = Math.round((other[0]+other[1]+other[2]+other[3])/4)+'hPa';
     
 }
 function plotGraph(){
