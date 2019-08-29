@@ -1,8 +1,9 @@
 document.addEventListener('DOMContentLoaded', function() {
-    getData('London,uk');
-    getData('Paris,fr');
-    getData('Berlin,de');
-    getData('Copenhagen,dk');
+    getData2();
+    // getData('London,uk');
+    // getData('Paris,fr');
+    // getData('Berlin,de');
+    // getData('Copenhagen,dk');
 }, false);
 
 
@@ -167,13 +168,23 @@ function renderChart() {
         }         
     });
 }
+function getData2(){
 
+    for (var key in weather_data) {
+        // check if the property/key is defined in the object itself, not in parent
+
+        data.push(weather_data[key].main.temp);
+        humidity.push(weather_data[key].main.humidity);
+        other.push(weather_data[key].main.pressure);
+
+        labels.push(key);
+        plotGraph();
+    }
+}
+
+    
 function getData(id){
-
-    console.log(data.UK)
-    console.log(data.DE)
-    console.log(data.FR)
-    console.log(data.DK)
+    console.log(JSON.stringify(weather_data));
 
     var request = new XMLHttpRequest();
     //check city ID, guessing Lon ...
