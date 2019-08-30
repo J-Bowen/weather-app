@@ -1,6 +1,5 @@
 from flask import Flask, render_template
 import datetime,unittest,requests,os
-import redis
 
 # try: 
 #     from google.appengine.api import memcache
@@ -12,19 +11,6 @@ import redis
 
 app = Flask(__name__)
 
-redis_host = os.environ.get('REDISHOST', 'localhost')
-redis_port = int(os.environ.get('REDISPORT', 6379))
-redis_client = redis.StrictRedis(host=redis_host, port=redis_port)
-
-
-def setDataInRedis():
-    value = redis_client.incr('counter', 1)
-    return 'Visitor number: {}'.format(value)
-    # return None
-
-def getDataFromRedis():
-
-    return None
 
 def getDataFromAPI():
     uk = requests.get(url = 'https://api.openweathermap.org/data/2.5/weather?q=London,uk&APPID=86ccbefb8db547e08c6be822900d77a1')
@@ -38,8 +24,6 @@ def getDataFromAPI():
         'DE': de.json(),
         'DK': dk.json()
     }
-
-    setDataInRedis()
 
     return result
 
