@@ -6,7 +6,5 @@ bcrypt>=3.1.4
 google-cloud-bigquery>=1.7.0
 google-cloud-storage>=1.13.0
 google-cloud-logging>=1.8.0
-google-api-python-client==1.7.10
-google-cloud-ndb==0.0.1
-grpcio-gcp==1.17.1
 pandas>=0.23.4
+redis==3.1.0

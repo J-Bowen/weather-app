@@ -1,8 +1,6 @@
 from flask import Flask, render_template
-import datetime,unittest,requests
-from google.appengine.api import memcache
-
-use_memcache = True
+import datetime,unittest,requests,os
+import redis
 
 # try: 
 #     from google.appengine.api import memcache
@@ -14,16 +12,16 @@ use_memcache = True
 
 app = Flask(__name__)
 
+redis_host = os.environ.get('REDISHOST', 'localhost')
+redis_port = int(os.environ.get('REDISPORT', 6379))
+redis_client = redis.StrictRedis(host=redis_host, port=redis_port)
 
-def setDataInMemcache():
-    print(type(memcache))
-    if use_memcache:
-        memcache.add(key="key1", value="test123", time=3600)
 
-    return None
+def setDataInRedis():
+    value = redis_client.incr('counter', 1)
+    return 'Visitor number: {}'.format(value)
 
-def getDataFromMemcache():
-
+def getDataFromRedis():
 
     return None
 
@@ -40,7 +38,7 @@ def getDataFromAPI():
         'DK': dk.json()
     }
 
-    setDataInMemcache()
+    setDataInRedis()
 
     return result
 
