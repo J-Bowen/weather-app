@@ -1,4 +1,9 @@
-runtime: custom
+runtime: python
+env: flex
+
+runtime_config:
+  python_version: 3
+
 instance_class: F2
 automatic_scaling:
   target_cpu_utilization: 0.65
@@ -18,6 +23,6 @@ env_variables:
   REDISPORT: 6379
 
 # # update with Redis instance network name
-env: flex
+
 network:
   name: weather-app-redis
