@@ -18,6 +18,7 @@ env_variables:
   REDISPORT: 6379
 
 # # update with Redis instance network name
+runtime: custom
 env: flex
 network:
   name: weather-app-redis
